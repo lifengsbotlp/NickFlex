@@ -19,17 +19,27 @@
     //cnpm安装
     cnpm install nick-flex
 ```
+如果不使用npm或cnpm传统的方式直接下载NickFlex.js
+使用传统的script标签引入也可以
+```html
+    <script src="NickFlex.js"></script>
+```
 ## 使用
+npm安装的方式
+```js
+    const NickFlex = require('nick-flex');
+```
+如果是script引入的方式NickFlex就已经是全局类了不需要额外做什么
 ```js
     //一句话就可以了
-    new require('nick-flex')();
+    new NickFlex();
 ```
 ## 配置设计稿尺寸
 1. 默认设计稿尺寸是750，这个值是可以配置的
 2. 如果您的设计稿尺寸不是750的那么一定要配置自己的设计稿尺寸！！！否则比例就会出问题！！！
 3. 假如您的设计稿是640则可以按如下参数进行配置，当然也可以是任意数值
 ```js
-    new require('nick-flex')({width:640})
+    new NickFlex({width:640})
 ```
 ## 大屏下也想显示手机尺寸
 1.  有的时候是不是想在PAD或者PC下以手机的宽度展示？
@@ -37,11 +47,11 @@
 3.  默认最大宽度是500，在ipad及pc下会以500宽度居中显示
 4.  假如您希望大屏下最大显示宽度为600可以按如下配置
 ```js
-    new require('nick-flex')({maxWidth:600})
+    new NickFlex({maxWidth:600})
 ```
 如果你即需要配置设计稿尺寸又需要设置最大显示宽度则可以如下
 ```js
-    new require('nick-flex')({width:640,maxWidth:600})
+    new NickFlex({width:640,maxWidth:600})
 ```
 
 
