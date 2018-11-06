@@ -1,6 +1,6 @@
 /**
  * @author cuichuanteng 崔传腾
- * @version 1.0.2 
+ * @version 1.0.3 
  */
 class NickFlex {
     constructor({ width = 750, maxWidth = 500 } = {}) {
@@ -39,5 +39,5 @@ class NickFlex {
         }
     }
 }
-//module.exports = NickFlex;
- export default NickFlex
+module.exports = NickFlex;
+//export default NickFlex

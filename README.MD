@@ -19,7 +19,7 @@
     //cnpm安装
     cnpm install nick-flex
 ```
-如果不使用npm或cnpm传统的方式直接下载NickFlex.js
+如果不使用npm或cnpm传统的方式直接下载NickFlex.js
 使用传统的script标签引入也可以
 ```html
     <script src="NickFlex.js"></script>
