@@ -29,7 +29,8 @@ npm安装的方式
 ```js
     const NickFlex = require('nick-flex');
 ```
-如果是script引入的方式NickFlex就已经是全局类了不需要额外做什么
+如果是script引入的方式NickFlex就已经是全局类了不需要额外做什么  
+需要es5版本的请使用index.es5.js或者自行将index.js使用babel转换成es5
 ```js
     //一句话就可以了
     new NickFlex();
