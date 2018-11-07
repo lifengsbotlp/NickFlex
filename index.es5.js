@@ -36,7 +36,8 @@ NickFlex.prototype = {
             var deviceWidth = clientWidth > maxWidth ? maxWidth : clientWidth;
             var scale = 1 / (width / deviceWidth);
             var height = width / deviceWidth * html.clientHeight;
-            html.style.cssText = 'width:' + width + 'px;box-sizing:border-box;transform-origin:left top;transform:scale(' + scale + ') translateX(-50%);position:absolute;left:50%;top:0;height:' + height + 'px;';
+            html.style.cssText = 'width:' + width + 'px;overflow:auto;box-sizing:border-box;transform-origin:left top;transform:scale(' + scale + ') translateX(-50%);position:absolute;left:50%;top:0;height:' + height + 'px;';
+            document.body.style.cssText += `overflow:auto;`;
         }
     }
 }
