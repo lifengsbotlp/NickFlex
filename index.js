@@ -39,5 +39,7 @@ class NickFlex {
         }
     }
 }
-module.exports = NickFlex;
+if(typeof module !=='undefined'){
+    module.exports = NickFlex;
+}
 //export default NickFlex
