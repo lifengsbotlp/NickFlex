@@ -3,6 +3,7 @@
 2. [使用](#使用)
 3. [配置设计稿尺寸](#配置设计稿尺寸)
 4. [大屏下也想显示手机尺寸](#大屏下也想显示手机尺寸)
+5. [fixed固定定位问题](#fixed固定定位问题)
 ## 先说说这个适配方案解决了什么问题
 1. 0成本享受移动端开发适配，与开发PC一样
 2. 不需要使用rem单位，按设计稿上的尺寸写就可以了
@@ -54,7 +55,34 @@ npm安装的方式
 ```js
     new NickFlex({width:640,maxWidth:600})
 ```
-
+## fixed固定定位问题
+由于对html根节点进行了transform scale导致固定定位显示异常  
+解决方案必然有的，这个问题触发主要是固定定位然后使用bottom时才会发现
+1. 将非fixed定位的元素在body下用div包起来
+2. 给这个div设置height:100%;overflow:auto;
+3. 把需要固定定位的元素直接放在body下即可
+4. body的高度已经自动被设置成100%了
+代码结构如下
+```html
+    <style>
+        .wrapper{
+            height:100%;
+            overflow:auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .fixed{
+            position:fixed;
+        }
+    </style>
+    <body>
+        <div class="wrapper">
+            <!--- 所有内容放在这个容器即可 -->
+        </div>
+        <!--需要固定定位的元素只要是body的子级即可 -->
+        <div class="fixed"></div>
+    </body>
+```
+**事实上当wrapper设置高100% 溢出auto的时候，body子下级的fixed使用绝对定位也是一样的效果**
 
 
 

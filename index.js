@@ -1,6 +1,6 @@
 /**
  * @author cuichuanteng 崔传腾
- * @version 1.0.3 
+ * @version 1.0.5 
  */
 class NickFlex {
     constructor({ width = 750, maxWidth = 500 } = {}) {
@@ -20,6 +20,14 @@ class NickFlex {
         return () => viewport
     }
     resize({ width, maxWidth, viewport, html }) {
+        function setBodyHeight() {
+            document.body.style.cssText += 'height:100%;';
+        }
+        if (document.body) {
+            setBodyHeight();
+        } else {
+            document.addEventListener('DOMContentLoaded', setBodyHeight);
+        }
         return () => {
             viewport.content = 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0';
             const clientWidth = html.clientWidth;
@@ -39,7 +47,7 @@ class NickFlex {
         }
     }
 }
-if(typeof module !=='undefined'){
+if (typeof module !== 'undefined') {
     module.exports = NickFlex;
 }
 //export default NickFlex

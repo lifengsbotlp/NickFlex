@@ -1,6 +1,6 @@
 /**
  * @author cuichuanteng 崔传腾
- * @version 1.0.3 
+ * @version 1.0.5 
  */
 function NickFlex(config) {
     config = config || { width: 750, maxWidth: 500 };
@@ -30,6 +30,14 @@ NickFlex.prototype = {
         var maxWidth = config.maxWidth;
         var viewport = config.viewport;
         var html = config.html;
+        function setBodyHeight() {
+            document.body.style.cssText += 'height:100%;';
+        }
+        if (document.body) {
+            setBodyHeight();
+        } else {
+            document.addEventListener('DOMContentLoaded', setBodyHeight);
+        }
         return function () {
             viewport.content = 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0';
             var clientWidth = html.clientWidth;
