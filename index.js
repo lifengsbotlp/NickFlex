@@ -34,7 +34,7 @@ class NickFlex {
             const deviceWidth = clientWidth > maxWidth ? maxWidth : clientWidth;
             const scale = 1 / (width / deviceWidth);
             const height = width / deviceWidth * html.clientHeight;
-            html.style.cssText = `
+            html.style.cssText += `
                 width:${width}px;
                 box-sizing:border-box;
                 transform-origin:left top;
